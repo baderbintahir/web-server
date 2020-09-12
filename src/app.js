@@ -34,7 +34,8 @@ app.get('/about', (req, res) => {
 app.get('/help', (req, res) => {
     res.render('help', {
         title: 'Help',
-        helpText: 'This is help text'
+        helpText: 'This is help text',
+        name: 'Muhammad Bader'
     })
 })
 
@@ -42,6 +43,22 @@ app.get('/weather', (req, res) => {
     res.send({
         location: 'This is Lahore.',
         forecast: "It's cloudy here."
+    })
+})
+
+app.get('/help/*', (req, res) => {
+    res.render('404', {
+        title: '404',
+        errorMessage: 'Help page not found',
+        name: 'Muhammad Bader'
+    })
+})
+
+app.get('*', (req, res) => {
+    res.render('404', {
+        title: '404',
+        errorMessage: 'Page not found',
+        name: 'Muhammad Bader'
     })
 })
 
